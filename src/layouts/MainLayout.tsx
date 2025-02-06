@@ -1,7 +1,7 @@
 import { Outlet, NavLink } from 'react-router-dom'
 import { Suspense } from 'react'
-
-
+import Button from '@/components/Button'
+import { Text } from '@/components/Text'
 export default function MainLayout() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -9,37 +9,16 @@ export default function MainLayout() {
         <nav className="container mx-auto px-4 py-6">
           <ul className="flex gap-8">
             <li>
+              <Button>
               <NavLink 
                 to="/" 
                 className={({ isActive }) => `${isActive ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-500`}
               >
-                Home
+                <Text>Home</Text>
               </NavLink>
+              </Button>
             </li>
-            <li>
-              <NavLink 
-                to="/about" 
-                className={({ isActive }) => `${isActive ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-500`}
-              >
-                About
-              </NavLink>
-            </li>
-            <li>
-              <NavLink 
-                to="/pricing" 
-                className={({ isActive }) => `${isActive ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-500`}
-              >
-                Pricing
-              </NavLink>
-            </li>
-            <li>
-              <NavLink 
-                to="/contact" 
-                className={({ isActive }) => `${isActive ? 'text-blue-600' : 'text-gray-600'} hover:text-blue-500`}
-              >
-                Contact
-              </NavLink>
-            </li>
+
           </ul>
         </nav>
       </header>
@@ -49,12 +28,6 @@ export default function MainLayout() {
           <Outlet />
         </Suspense>
       </main>
-
-      <footer className="bg-gray-100">
-        <div className="container mx-auto px-4 py-6 text-center text-gray-600">
-          © 2024 Your Company. All rights reserved.
-        </div>
-      </footer>
     </div>
   )
 } 
