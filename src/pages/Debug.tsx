@@ -1,6 +1,12 @@
 import Button from "@/components/Button";
 import TextPanel from "@/components/TextPanel";
 import { Text } from "@/components/Text";
+import { BlobImage } from "@/components/BlobImage";
+import { Icon } from "@/components/Icon";
+import InstagramIcon from "@/components/Icons/InstagramIcon";
+import PhoneIcon from "@/components/Icons/PhoneIcon";
+import EmailIcon from "@/components/Icons/EmailIcon";
+
 export default function Debug() {
   return (
     <div className="max-w-4xl mx-auto">
@@ -24,6 +30,23 @@ export default function Debug() {
             <Button variant="green" className="w-40">Custom Width</Button>
           </div>
 
+          <div className="space-x-4">
+            <BlobImage src="/src/assets/dog_main.webp" alt="Dog" variant="blue" size="sm" />
+            <BlobImage src="/src/assets/dog_main.webp" alt="Dog" variant="pink" size="md" />
+            <BlobImage src="/src/assets/dog_main.webp" alt="Dog" variant="green" size="lg" />
+          </div>
+
+          <div className="space-x-4">
+            <Icon variant="pink" size="sm">
+              <InstagramIcon />
+            </Icon>
+            <Icon variant="green" size="md">
+              <PhoneIcon />
+            </Icon>
+            <Icon variant="blue" size="lg">
+              <EmailIcon />
+            </Icon>
+          </div>
 
           <div className="space-y-4 mt-4">
             <TextPanel>
