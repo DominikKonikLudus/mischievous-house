@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative z-10">
+      <main className="relative z-10">
         <TextPanel
           variant="pink"
           size="md"
@@ -221,7 +221,7 @@ export default function Home() {
             </TextPanel>
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }
