@@ -6,9 +6,7 @@ import MainLayout from '../layouts/MainLayout'
 
 // Lazy load pages
 const Home = lazy(() => import('@/pages/Home'))
-const About = lazy(() => import('@/pages/About'))
-const Pricing = lazy(() => import('@/pages/Pricing'))
-const Contact = lazy(() => import('@/pages/Contact'))
+const Debug = lazy(() => import('@/pages/Debug'))
 
 
 export const router = createBrowserRouter([
@@ -21,17 +19,10 @@ export const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: 'about',
-        element: <About />
-      },
-      {
-        path: 'pricing',
-        element: <Pricing />
-      },
-      {
-        path: 'contact',
-        element: <Contact />
+        path: 'debug',
+        element: <Debug />
       }
     ]
   }
+
 ]) 
