@@ -1,5 +1,6 @@
 import { BlobImage } from '../components/BlobImage';
 import Button from '../components/Button';
+import { FancyText } from '../components/FancyText';
 import { Icon } from '../components/Icon';
 import { InstagramIcon, PhoneIcon, EmailIcon } from '../components/Icons';
 import { Text } from '../components/Text';
@@ -10,31 +11,49 @@ export default function Home() {
   return (
     <>
       <div className="relative z-10">
-        <div className="flex flex-col items-center gap-8 max-w-md mx-auto py-8 px-4">
-          {/* Title Panels */}
-          <div className="flex flex-col gap-2 w-full">
-            <TextPanel variant="pink" size="md">
-              PSOTNY DOMEK
-            </TextPanel>
-            <TextPanel variant="green" size="md">
-              RADOSNA
-            </TextPanel>
-            <TextPanel variant="blue" size="md">
-              DOMOWA
-            </TextPanel>
-            <TextPanel variant="green" size="md">
-              ZAUFANA
-            </TextPanel>
-            <TextPanel variant="blue" size="md">
-              OPIEKA
-            </TextPanel>
-            <TextPanel variant="pink" size="md">
-              PETSITTERA :)
-            </TextPanel>
+        <TextPanel
+          variant="pink"
+          size="md"
+          className="text-center w-fit mx-auto"
+        >
+          <Text weight="bold" size="2xl" className="px-4">
+            PSOTNY DOMEK
+          </Text>
+        </TextPanel>
+
+        <div className="flex flex-col items-center gap-2 max-w-md mx-auto my-8 py-8 px-4">
+          {/* Title Section */}
+          <div className="w-full flex flex-col items-center gap-2">
+            <FancyText variant="green" size="2xl">
+              <Text weight="bold" size="4xl">
+                RADOSNA
+              </Text>
+            </FancyText>
+            <FancyText variant="green" size="2xl">
+              <Text weight="bold" size="4xl">
+                DOMOWA
+              </Text>
+            </FancyText>
+
+            <FancyText variant="green" size="2xl">
+              <Text weight="bold" size="4xl">
+                ZAUFANA
+              </Text>
+            </FancyText>
+            <FancyText variant="green" size="2xl">
+              <Text weight="bold" size="4xl">
+                OPIEKA
+              </Text>
+            </FancyText>
+            <FancyText variant="green" size="2xl">
+              <Text weight="bold" size="4xl">
+                PETSITTERA :D
+              </Text>
+            </FancyText>
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex gap-4 w-full justify-center">
+          <div className="flex gap-4 w-full justify-center my-10">
             <Button variant="pink">O mnie</Button>
             <Button variant="blue">Cennik</Button>
             <Button variant="green">Kontakt</Button>
@@ -164,18 +183,18 @@ export default function Home() {
               </div>
             </TextPanel>
 
-            <TextPanel variant="pink" size="md">
+            <TextPanel variant="blue" size="md">
               <div className="flex items-center gap-2">
-                <Icon variant="pink" size="md">
+                <Icon variant="blue" size="md">
                   <PhoneIcon />
                 </Icon>
                 <Text>+48 456 345</Text>
               </div>
             </TextPanel>
 
-            <TextPanel variant="pink" size="md">
+            <TextPanel variant="green" size="md">
               <div className="flex items-center gap-2">
-                <Icon variant="pink" size="md">
+                <Icon variant="green" size="md">
                   <EmailIcon />
                 </Icon>
                 <Text>psotnydomek@gmail.eu</Text>
