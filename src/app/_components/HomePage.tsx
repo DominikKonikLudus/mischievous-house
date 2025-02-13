@@ -1,11 +1,12 @@
-import { BlobImage } from '../components/BlobImage';
-import Button from '../components/Button';
-import { FancyText } from '../components/FancyText';
-import { Icon } from '../components/Icon';
-import { InstagramIcon, PhoneIcon, EmailIcon } from '../components/Icons';
-import { Text } from '../components/Text';
-import TextPanel from '../components/TextPanel';
-import dogMainImage from '../assets/dog_main.webp';
+'use client';
+
+import { BlobImage } from './BlobImage';
+import Button from './Button';
+import { FancyText } from './FancyText';
+import { Icon } from './Icon';
+import { InstagramIcon, PhoneIcon, EmailIcon } from './Icons';
+import { Text } from './Text';
+import TextPanel from './TextPanel';
 
 export default function Home() {
   const scrollToSection = (id: string) => {
@@ -76,7 +77,7 @@ export default function Home() {
           <BlobImage
             variant="blue"
             size="lg"
-            src={dogMainImage}
+            src="/assets/dog_main.webp"
             alt="Dog in the grass"
             className="my-5"
           />

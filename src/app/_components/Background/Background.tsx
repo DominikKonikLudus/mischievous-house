@@ -1,5 +1,6 @@
-import { useMemo } from 'react';
-import pawImage from '@/assets/paw.png';
+'use client';
+
+import { useMemo, useState, useEffect } from 'react';
 
 interface PawProps {
   count?: number;
@@ -11,7 +12,9 @@ function generateRandomPaws(count: number, minSize: number, maxSize: number) {
   // Create a grid to track occupied spaces
   const gridSize = Math.ceil(Math.sqrt(count)) + 1;
   const cellSize = 100 / gridSize; // percentage
-  const grid: boolean[][] = Array(gridSize).fill(null).map(() => Array(gridSize).fill(false));
+  const grid: boolean[][] = Array(gridSize)
+    .fill(null)
+    .map(() => Array(gridSize).fill(false));
   const paws: Array<{
     left: string;
     top: string;
@@ -29,12 +32,13 @@ function generateRandomPaws(count: number, minSize: number, maxSize: number) {
     const gridY = Math.floor(Math.random() * gridSize);
 
     // Check if this cell and adjacent cells are empty
-    if (!grid[gridY]?.[gridX] && 
-        !grid[gridY-1]?.[gridX] && 
-        !grid[gridY+1]?.[gridX] && 
-        !grid[gridY]?.[gridX-1] && 
-        !grid[gridY]?.[gridX+1]) {
-      
+    if (
+      !grid[gridY]?.[gridX] &&
+      !grid[gridY - 1]?.[gridX] &&
+      !grid[gridY + 1]?.[gridX] &&
+      !grid[gridY]?.[gridX - 1] &&
+      !grid[gridY]?.[gridX + 1]
+    ) {
       // Mark this cell as occupied
       grid[gridY][gridX] = true;
 
@@ -59,15 +63,31 @@ function generateRandomPaws(count: number, minSize: number, maxSize: number) {
   return paws;
 }
 
-export default function Background({ count = 50, minSize = 20, maxSize = 60 }: PawProps) {
-  const paws = useMemo(() => generateRandomPaws(count, minSize, maxSize), [count, minSize, maxSize]);
+export default function Background({
+  count = 50,
+  minSize = 20,
+  maxSize = 60,
+}: PawProps) {
+  const [mounted, setMounted] = useState(false);
+  const paws = useMemo(
+    () => (mounted ? generateRandomPaws(count, minSize, maxSize) : []),
+    [count, minSize, maxSize, mounted]
+  );
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {paws.map((paw, index) => (
         <img
           key={index}
-          src={pawImage}
+          src="/assets/paw.png"
           alt=""
           className="absolute"
           style={{
@@ -82,4 +102,4 @@ export default function Background({ count = 50, minSize = 20, maxSize = 60 }: P
       ))}
     </div>
   );
-} 
+}
