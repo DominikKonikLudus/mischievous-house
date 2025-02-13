@@ -1,3 +1,5 @@
+'use client';
+
 import { cva, type VariantProps } from 'class-variance-authority';
 import { forwardRef } from 'react';
 
@@ -23,11 +25,6 @@ export const fancyTextVariants = cva('flex flex-col gap-2', {
   },
 });
 
-const getRandomRotation = () => {
-  // Random rotation between -8 and 8 degrees
-  return Math.random() * 16 - 8;
-};
-
 const getBackgroundColor = (variant: 'pink' | 'blue' | 'green') => {
   switch (variant) {
     case 'pink':
@@ -45,10 +42,11 @@ export interface FancyTextProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof fancyTextVariants> {
   children: React.ReactNode;
+  rotation?: number;
 }
 
 const FancyText = forwardRef<HTMLDivElement, FancyTextProps>(
-  ({ className, variant, size, children, ...props }, ref) => {
+  ({ className, variant, size, rotation = 0, children, ...props }, ref) => {
     const finalVariant = variant || 'pink';
 
     return (
@@ -64,8 +62,8 @@ const FancyText = forwardRef<HTMLDivElement, FancyTextProps>(
         <div
           className={`${getBackgroundColor(
             finalVariant
-          )} px-6 py-3 transform inline-block text-center`}
-          style={{ transform: `rotate(${getRandomRotation()}deg)` }}
+          )} px-6 py-3 transform inline-block text-center transition-transform`}
+          style={{ transform: `rotate(${rotation}deg)` }}
         >
           {children}
         </div>

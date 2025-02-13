@@ -32,28 +32,28 @@ export default function Home() {
         <div className="flex flex-col items-center gap-2 max-w-md mx-auto my-8 px-4">
           {/* Title Section */}
           <div className="w-full flex flex-col items-center gap-2">
-            <FancyText variant="green" size="2xl">
+            <FancyText variant="green" size="2xl" rotation={-2.5}>
               <Text weight="bold" size="4xl">
                 RADOSNA
               </Text>
             </FancyText>
-            <FancyText variant="green" size="2xl">
+            <FancyText variant="green" size="2xl" rotation={2.5}>
               <Text weight="bold" size="4xl">
                 DOMOWA
               </Text>
             </FancyText>
 
-            <FancyText variant="green" size="2xl">
+            <FancyText variant="green" size="2xl" rotation={-2.5}>
               <Text weight="bold" size="4xl">
                 ZAUFANA
               </Text>
             </FancyText>
-            <FancyText variant="green" size="2xl">
+            <FancyText variant="green" size="2xl" rotation={2.5}>
               <Text weight="bold" size="4xl">
                 OPIEKA
               </Text>
             </FancyText>
-            <FancyText variant="green" size="2xl">
+            <FancyText variant="green" size="2xl" rotation={-2.5}>
               <Text weight="bold" size="4xl">
                 PETSITTERA :D
               </Text>
