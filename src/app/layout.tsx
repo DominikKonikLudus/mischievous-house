@@ -1,10 +1,14 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 import Background from '@/app/_components/Background/Background';
 import React from 'react';
 
-const inter = Inter({ subsets: ['latin'] });
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',
+});
 
 export const metadata: Metadata = {
   title: 'PSOTNY DOMEK',
@@ -18,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pl">
-      <body className={inter.className}>
+      <body className={`${poppins.variable} ${poppins.className}`}>
         <Background count={30} minSize={80} maxSize={100} />
         <main className="min-h-screen flex flex-col">
           <div className="flex-1 container mx-auto px-4 py-8">{children}</div>
